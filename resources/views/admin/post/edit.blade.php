@@ -22,6 +22,16 @@
                         <textarea class="form-control" id="content" rows="10" name="content">{{old('content', $post->content)}}</textarea>
                     </div>
 
+                    <div class="form-group">
+                        <label for="category_id">Categoria</label>
+                        <select class="form-select mb-3" name="category_id" id="category_id">
+                            <option value="">Seleziona la categoria</option>
+                            @foreach ($categories as $category)
+                                <option {{(old('category_id', $post->category_id) == $category->id) ? 'selected': ''}} value="{{$category->id}}">{{$category->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
                     <button type="submit" class="btn btn-primary">Salva</button>
 
                   </form>
